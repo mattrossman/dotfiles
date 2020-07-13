@@ -1,0 +1,33 @@
+[alias]
+	l = log --oneline --decorate --graph
+
+	ll = log --graph --abbrev-commit --decorate \
+		--format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ai)%C(reset) \
+		%C(white)%s%C(reset) %C(dim red)- %an%C(reset)%C(bold yellow)%d%C(reset)'
+
+	lll = log --graph --abbrev-commit --decorate \
+		--format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) \
+		%C(white)%s%C(reset) %C(dim red)- %an%C(reset)%C(bold yellow)%d%C(reset)' \
+		--branches
+
+	b = branch
+	c = commit
+	co = checkout
+	a = add
+	ps = push
+	pl = pull
+	d = diff
+	dc = diff --cached
+	s = status --short --branch
+	branch-name = rev-parse --abbrev-ref HEAD
+	uncommit = reset --soft HEAD^
+	unstage = reset HEAD
+	discard = checkout --
+	size = count-objects -vH
+[core]
+	editor = vim
+[user]
+	email = mrossman@umass.edu
+	name = mattrossman
+[merge]
+	ff = false
