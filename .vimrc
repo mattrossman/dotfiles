@@ -48,5 +48,6 @@ set shiftwidth=0 " make >> follow tabstop
 set tabstop=4 " set width of a tab character
 set cursorline " highlight current line
 set relativenumber " show line numbers (relative)
-
+set backspace=2 " make backspace work like most other programs
+set mouse=a " Allow navigation with the mouse
 
