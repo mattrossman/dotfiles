@@ -14,7 +14,9 @@
 	c = commit
 	co = checkout
 	a = add
+	au = add -u
 	ps = push
+	psu = "!f() { git push -u origin $(git rev-parse --abbrev-ref HEAD); }; f"
 	pl = pull
 	d = diff
 	dc = diff --cached
@@ -24,6 +26,8 @@
 	unstage = reset HEAD
 	discard = checkout --
 	size = count-objects -vH
+	ignore = update-index --assume-unchanged
+	unignore = update-index --no-assume-unchanged
 [core]
 	editor = vim
 [user]
