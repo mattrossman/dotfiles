@@ -35,7 +35,10 @@ map <leader>Q :qa!<cr>
 map! <leader>Q <esc>:qa!<cr>
 
 map <C-n> :NERDTreeToggle<cr>
-imap <leader><space> <plug>(emmet-expand-abbr)
+imap <leader>m <plug>(emmet-expand-abbr)
+
+map j gj
+map k gk
 
 colorscheme gruvbox
 set background=dark
@@ -44,5 +47,6 @@ set noexpandtab " use tab for indentation
 set shiftwidth=0 " make >> follow tabstop
 set tabstop=4 " set width of a tab character
 set cursorline " highlight current line
+set relativenumber " show line numbers (relative)
 
 
