@@ -13,7 +13,6 @@ call plug#end()
 
 
 set showcmd " visual feedback of keystrokes
-set notimeout " no time limit on leader key combos
 let mapleader=","
 map <leader><leader> <esc>
 map! <leader><leader> <esc>
