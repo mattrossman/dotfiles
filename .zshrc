@@ -1,6 +1,9 @@
 # Copy all configuration from .bashrc
 [[ -e ~/.bashrc ]] && emulate sh -c 'source ~/.bashrc'
 
+
+source $HOME/.zsh/autosuggest.zsh
+
 ANTIGEN="$HOME/antigen.zsh"
 if [ ! -f "$ANTIGEN" ]; then
 	echo "Downloading Antigen to ${ANTIGEN}..."
@@ -12,9 +15,12 @@ source $ANTIGEN
 # Load the oh-my-zsh's library.
 antigen use oh-my-zsh
 
-# Bundles from the default repo (robbyrussell's oh-my-zsh).
+# Bundles from oh-my-zsh
 antigen bundle git
 antigen bundle git-fast
+
+# Faster version of the z plugin
+antigen bundle agkozak/zsh-z
 
 # Syntax highlighting bundle.
 antigen bundle zsh-users/zsh-syntax-highlighting
