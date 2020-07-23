@@ -14,30 +14,36 @@ call plug#end()
 
 set showcmd " visual feedback of keystrokes
 let mapleader=","
-map <leader><leader> <esc>
-map! <leader><leader> <esc>
+noremap <leader><leader> <esc>
+noremap! <leader><leader> <esc>
 
 " Save
-map <leader>w :w<cr>
-map! <leader>w <esc>:w<cr>
+noremap <leader>w :w<cr>
+noremap! <leader>w <esc>:w<cr>
 
 " Save and quit
-map <leader>W :wq<cr>
-map! <leader>W <esc>:wq<cr>
+noremap <leader>W :wq<cr>
+noremap! <leader>W <esc>:wq<cr>
 
 " Quit
-map <leader>q :q<cr>
-map! <leader>q <esc>:q<cr>
+noremap <leader>q :q<cr>
+noremap! <leader>q <esc>:q<cr>
 
 " Force quit all
-map <leader>Q :qa!<cr>
-map! <leader>Q <esc>:qa!<cr>
+noremap <leader>Q :qa!<cr>
+noremap! <leader>Q <esc>:qa!<cr>
 
-map <C-n> :NERDTreeToggle<cr>
+" Select all
+noremap <leader>a ggVG
+
+" Quick macro execution with Q
+noremap Q @q
+
+noremap <C-n> :NERDTreeToggle<cr>
 imap <leader>m <plug>(emmet-expand-abbr)
 
-map j gj
-map k gk
+noremap j gj
+noremap k gk
 
 colorscheme gruvbox
 set background=dark
