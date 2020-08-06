@@ -28,6 +28,7 @@
 	size = count-objects -vH
 	ignore = update-index --assume-unchanged
 	unignore = update-index --no-assume-unchanged
+	hotfix = commit -a --amend
 [core]
 	editor = vim
 [user]
