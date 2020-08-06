@@ -21,6 +21,7 @@ antigen bundle git-fast
 
 # Faster version of the z plugin
 antigen bundle agkozak/zsh-z
+ZSHZ_UNCOMMON=1 # Improve its selection behavior
 
 # Syntax highlighting bundle.
 antigen bundle zsh-users/zsh-syntax-highlighting
