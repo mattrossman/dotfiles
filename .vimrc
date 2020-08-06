@@ -24,6 +24,7 @@ noremap! <leader>w <esc>:w<cr>
 " Save and quit
 noremap <leader>W :wq<cr>
 noremap! <leader>W <esc>:wq<cr>
+inoremap ZZ <esc>ZZ
 
 " Quit
 noremap <leader>q :q<cr>
