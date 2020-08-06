@@ -6,3 +6,8 @@ alias ip="ifconfig | grep -Eo 'inet (addr:)?([0-9]*\.){3}[0-9]*' | grep -Eo '([0
 mmkdir() {
 	mkdir $1 && cd $1
 }
+
+if grep -i microsoft /proc/version; then
+	# WSL specific items
+	alias open=explorer.exe
+fi
