@@ -40,6 +40,12 @@ noremap <leader>a ggVG
 " Quick macro execution with Q
 noremap Q @q
 
+" Switch between panes
+noremap <C-j> <C-w>j
+noremap <C-k> <C-w>k
+noremap <C-l> <C-w>l
+noremap <C-h> <C-w>h
+
 noremap <C-n> :NERDTreeToggle<cr>
 imap <leader>m <plug>(emmet-expand-abbr)
 
