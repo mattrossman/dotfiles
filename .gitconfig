@@ -29,10 +29,12 @@
 	ignore = update-index --assume-unchanged
 	unignore = update-index --no-assume-unchanged
 	hotfix = commit -a --amend
+	hf = hotfix
+	cs = clone --depth 1
 [core]
 	editor = vim
 [user]
-	email = mrossman@umass.edu
+	email = rossman@gatech.edu
 	name = mattrossman
 [merge]
 	ff = false
