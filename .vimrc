@@ -9,8 +9,9 @@ Plug 'preservim/nerdtree'
 Plug 'mattn/emmet-vim'
 Plug 'yuezk/vim-js'
 Plug 'maxmellon/vim-jsx-pretty'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
 call plug#end()
-
 
 set showcmd " visual feedback of keystrokes
 let mapleader=","
@@ -37,6 +38,9 @@ noremap! <leader>Q <esc>:qa!<cr>
 " Select all
 noremap <leader>a ggVG
 
+" Format file
+noremap <leader>f ggVG=
+
 " Quick macro execution with Q
 noremap Q @q
 
@@ -48,6 +52,7 @@ noremap <C-h> <C-w>h
 
 noremap <C-n> :NERDTreeToggle<cr>
 imap <leader>m <plug>(emmet-expand-abbr)
+noremap <C-p> :Files<cr>
 
 noremap j gj
 noremap k gk
@@ -62,4 +67,4 @@ set cursorline " highlight current line
 set relativenumber " show line numbers (relative)
 set backspace=2 " make backspace work like most other programs
 set mouse=a " Allow navigation with the mouse
-
+set incsearch " Highlight search result in realtime
