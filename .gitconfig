@@ -31,6 +31,7 @@
 	hotfix = commit -a --amend
 	hf = hotfix
 	cs = clone --depth 1
+	root = rev-parse --show-toplevel
 [core]
 	editor = vim
 [user]
