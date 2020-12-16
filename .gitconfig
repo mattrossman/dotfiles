@@ -32,6 +32,7 @@
 	hf = hotfix
 	cs = clone --depth 1
 	root = rev-parse --show-toplevel
+	ff = pull --ff
 [core]
 	editor = vim
 [user]
