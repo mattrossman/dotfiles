@@ -40,9 +40,9 @@ export FZF_DEFAULT_COMMAND='fdfind --type f'
 
 
 # Enable vim line editing with <C-x><C-e>
-autoload -U edit-command-line
+autoload edit-command-line
 zle -N edit-command-line
-bindkey -M vicmd v edit-command-line
+bindkey "^X^E" edit-command-line
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
