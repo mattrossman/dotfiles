@@ -40,3 +40,5 @@
 	name = mattrossman
 [merge]
 	ff = false
+[init]
+	defaultBranch = main
