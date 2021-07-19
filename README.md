@@ -10,6 +10,7 @@ sudo apt install git vim zsh zsh-antigen
 Then run:
 
 ```bash
+cd
 echo ".dotfiles" >> .gitignore
 git clone --bare git@github.com:mattrossman/dotfiles.git $HOME/.dotfiles
 alias df='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
