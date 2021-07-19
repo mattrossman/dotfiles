@@ -1,6 +1,13 @@
 # Instructions
 
-Install Git, Vim, Zsh, and Antigen. Then run:
+Install Git, Vim, Zsh, and Antigen. E.g. with Ubuntu:
+
+```bash
+sudo apt install git vim zsh zsh-antigen
+```
+
+
+Then run:
 
 ```bash
 echo ".dotfiles" >> .gitignore
