@@ -68,3 +68,17 @@ set relativenumber " show line numbers (relative)
 set backspace=2 " make backspace work like most other programs
 set mouse=a " Allow navigation with the mouse
 set incsearch " Highlight search result in realtime
+
+" Allow arrow keys to wrap cursor at end of line
+set whichwrap+=<,>,h,l,[,]
+
+" WSL yank support
+" See: https://vi.stackexchange.com/a/15190
+let s:clip = '/mnt/c/Windows/System32/clip.exe'  " default location
+if executable(s:clip)
+	augroup WSLYank
+		autocmd!
+		autocmd TextYankPost * call system('echo '.shellescape(join(v:event.regcontents, "\<CR>")).' | '.s:clip)
+	augroup END
+end
+
