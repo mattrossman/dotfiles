@@ -1,13 +1,22 @@
 # Instructions
 
-Install Git, Vim, Zsh, and Antigen. E.g. with Ubuntu:
+Commands written for Ubuntu based systems.
+
+(optional) Add Git PPA for latest stable release
+
+```bash
+sudo add-apt-repository ppa:git-core/ppa
+sudo apt update
+```
+
+Install Git, Vim, Zsh, and Antigen
 
 ```bash
 sudo apt install git vim zsh zsh-antigen
 ```
 
 
-Then run:
+Bakcup any boilerplate `.bashrc` as needed, and run:
 
 ```bash
 cd
