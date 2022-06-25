@@ -12,7 +12,7 @@ yad() {
 	yarn add -D "$@"
 }
 
-if grep -i microsoft /proc/version; then
+if grep -s -i microsoft /proc/version; then
 	# WSL specific items
 	alias open=explorer.exe
 fi
