@@ -36,9 +36,11 @@
 [core]
 	editor = vim
 [user]
-	email = rossman@gatech.edu
+	email = matthewjonrossman@gmail.com
 	name = mattrossman
 [merge]
 	ff = false
 [init]
 	defaultBranch = main
+[includeIf "gitdir:~/src/quarkworks/"]
+    path = ~/.gitconfig-quarkworks
