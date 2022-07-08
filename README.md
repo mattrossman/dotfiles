@@ -21,8 +21,8 @@ Bakcup any boilerplate `.bashrc` as needed, and run:
 ```bash
 cd
 echo ".dotfiles" >> .gitignore
-git clone --bare git@github.com:mattrossman/dotfiles.git $HOME/.dotfiles
-alias df='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
+git clone --bare git@github.com:mattrossman/dotfiles.git $HOME/.dotfiles.git
+alias df='/usr/bin/git --git-dir=$HOME/.dotfiles.git/ --work-tree=$HOME'
 df checkout  # Might need to back stuff up first
 df config --local status.showUntrackedFiles no
 chsh -s $(which zsh)
