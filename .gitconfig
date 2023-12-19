@@ -1,11 +1,11 @@
 [alias]
-	l = log --oneline --decorate --graph
+	l = log --oneline --decorate --graph --abbrev=8
 
-	ll = log --graph --abbrev-commit --decorate \
+	ll = log --graph --abbrev-commit --decorate --abbrev=8 \
 		--format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ai)%C(reset) \
 		%C(white)%s%C(reset) %C(dim red)- %an%C(reset)%C(bold yellow)%d%C(reset)'
 
-	lll = log --graph --abbrev-commit --decorate \
+	lll = log --graph --abbrev-commit --decorate --abbrev=8 \
 		--format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) \
 		%C(white)%s%C(reset) %C(dim red)- %an%C(reset)%C(bold yellow)%d%C(reset)' \
 		--branches
@@ -13,6 +13,7 @@
 	b = branch
 	c = commit
 	co = checkout
+	cl = clone
 	a = add
 	au = add -u
 	ps = push
@@ -35,12 +36,15 @@
 	ff = pull --ff
 [core]
 	editor = vim
+	excludesfile = /Users/matt/.gitignore
 [user]
-	email = matthewjonrossman@gmail.com
-	name = mattrossman
+	email = 22670878+mattrossman@users.noreply.github.com
+	name = Matt Rossman
 [merge]
 	ff = false
 [init]
 	defaultBranch = main
 [includeIf "gitdir:~/src/quarkworks/"]
+    path = ~/.gitconfig-quarkworks
+[includeIf "gitdir:~/src/hallway/"]
     path = ~/.gitconfig-quarkworks
