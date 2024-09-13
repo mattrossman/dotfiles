@@ -48,3 +48,5 @@
     path = ~/.gitconfig-quarkworks
 [includeIf "gitdir:~/src/hallway/"]
     path = ~/.gitconfig-quarkworks
+[branch]
+	sort = -committerdate
