@@ -8,6 +8,7 @@ alias b=bun
 alias ip="ifconfig | grep -Eo 'inet (addr:)?([0-9]*\.){3}[0-9]*' | grep -Eo '([0-9]*\.){3}[0-9]*' | grep -v '127.0.0.1'"
 alias c=cargo
 alias today="date '+%Y-%m-%d'"
+alias iterm="open -a iTerm $*"
 
 mmkdir() {
 	mkdir $1 && cd $1
