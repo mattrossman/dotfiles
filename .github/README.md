@@ -1,4 +1,4 @@
-# Instructions
+# Setup
 
 Commands written for Ubuntu based systems.
 
@@ -28,3 +28,11 @@ df config --local status.showUntrackedFiles no
 chsh -s $(which zsh)
 ```
 and you're done. Open up `vim` to auto install vim plugins, and run `zsh` to install antigen plugins.
+
+# Making changes
+
+`PATH` modifications go in `.bash_profile` which is sourced from `.bashrc` and by extension `.zshrc`.
+
+```bash
+PATH=$HOME/.somefolder:$PATH
+```
