@@ -34,5 +34,7 @@ and you're done. Open up `vim` to auto install vim plugins, and run `zsh` to ins
 `PATH` modifications go in `.bash_profile` which is sourced from `.bashrc` and by extension `.zshrc`.
 
 ```bash
-PATH=$HOME/.somefolder:$PATH
+# ~/.bash_profile
+
+export PATH="$HOME/.somefolder:$PATH"
 ```
