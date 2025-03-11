@@ -35,6 +35,11 @@ export NVM_DIR="$HOME/.nvm"
 export VOLTA_HOME="$HOME/.volta"
 export PATH="$VOLTA_HOME/bin:$PATH"
 
+# https://moonrepo.dev/docs/proto/workflows
+export PATH="$HOME/.proto/shims:$PATH"
+export PATH="$HOME/.proto/bin:$PATH"
+export PATH="$HOME/.proto/tools/node/globals/bin:$PATH"
+
 [[ -f "$HOME/.cargo/env" ]] && . "$HOME/.cargo/env"
 
 
