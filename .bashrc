@@ -9,6 +9,7 @@ alias ip="ifconfig | grep -Eo 'inet (addr:)?([0-9]*\.){3}[0-9]*' | grep -Eo '([0
 alias c=cargo
 alias today="date '+%Y-%m-%d'"
 alias iterm="open -a iTerm $*"
+alias c=cursor
 
 mmkdir() {
 	mkdir $1 && cd $1
