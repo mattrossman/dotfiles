@@ -34,6 +34,7 @@
 	cs = clone --depth 1
 	root = rev-parse --show-toplevel
 	ff = pull --ff
+	ms = merge --ff --squash
 [core]
 	editor = vim
 	excludesfile = /Users/matt/.gitignore
@@ -45,8 +46,8 @@
 [init]
 	defaultBranch = main
 [includeIf "gitdir:~/src/quarkworks/"]
-    path = ~/.gitconfig-quarkworks
+    path = ~/.gitconfig-hallway
 [includeIf "gitdir:~/src/hallway/"]
-    path = ~/.gitconfig-quarkworks
+    path = ~/.gitconfig-hallway
 [branch]
 	sort = -committerdate
