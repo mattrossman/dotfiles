@@ -32,7 +32,7 @@ brew install git vim zsh antigen
 (optional) Install casks
 
 ```bash
-brew install --cask google-chrome iterm raycast rectangle bartender cleanshot
+brew install --cask google-chrome iterm visual-studio-code raycast rectangle bartender cleanshot
 ```
 
 ## Shared
