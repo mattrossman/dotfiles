@@ -22,9 +22,9 @@ Bakcup any boilerplate `.bashrc` as needed, and run:
 cd
 echo ".dotfiles" >> .gitignore
 git clone --bare git@github.com:mattrossman/dotfiles.git $HOME/.dotfiles.git
-alias df='/usr/bin/git --git-dir=$HOME/.dotfiles.git/ --work-tree=$HOME'
-df checkout  # Might need to back stuff up first
-df config --local status.showUntrackedFiles no
+alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles.git/ --work-tree=$HOME'
+dotfiles checkout  # Might need to back stuff up first
+dotfiles config --local status.showUntrackedFiles no
 chsh -s $(which zsh)
 ```
 and you're done. Open up `vim` to auto install vim plugins, and run `zsh` to install antigen plugins.
