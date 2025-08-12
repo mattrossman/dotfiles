@@ -1,6 +1,6 @@
 # Setup
 
-Commands written for Ubuntu based systems.
+## Ubuntu
 
 (optional) Add Git PPA for latest stable release
 
@@ -9,14 +9,29 @@ sudo add-apt-repository ppa:git-core/ppa
 sudo apt update
 ```
 
-Install Git, Vim, Zsh, and Antigen
+Install packages
 
 ```bash
 sudo apt install git vim zsh zsh-antigen
 ```
 
+## MacOS
 
-Bakcup any boilerplate `.bashrc` as needed, and run:
+Install Homebrew
+
+```bash
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+```
+
+Install packages
+
+```bash
+brew install git vim zsh antigen
+```
+
+## Shared
+
+Backup any boilerplate `.bashrc` as needed, and run:
 
 ```bash
 cd
