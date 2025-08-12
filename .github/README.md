@@ -29,6 +29,12 @@ Install packages
 brew install git vim zsh antigen
 ```
 
+(optional) Install casks
+
+```bash
+brew install --cask google-chrome iterm raycast rectangle bartender cleanshot
+```
+
 ## Shared
 
 Backup any boilerplate `.bashrc` as needed, and run:
