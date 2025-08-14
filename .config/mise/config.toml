@@ -1,0 +1,7 @@
+[settings]
+idiomatic_version_file_enable_tools = ["node"]
+
+[tools]
+node = "24.5.0"
+"npm:@antfu/ni" = "25.0.0"
+pnpm = "10.14.0"

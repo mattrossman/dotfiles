@@ -41,6 +41,9 @@ export PATH="$HOME/.proto/shims:$PATH"
 export PATH="$HOME/.proto/bin:$PATH"
 export PATH="$HOME/.proto/tools/node/globals/bin:$PATH"
 
+# https://mise.jdx.dev/cli/activate.html#mise-activate
+eval "$(mise activate bash)"
+
 [[ -f "$HOME/.cargo/env" ]] && . "$HOME/.cargo/env"
 
 
