@@ -37,7 +37,7 @@
 	ms = merge --ff --squash
 [core]
 	editor = vim
-	excludesfile = /Users/matt/.gitignore
+	excludesFile = ~/.gitignore.global
 [user]
 	email = 22670878+mattrossman@users.noreply.github.com
 	name = Matt Rossman
