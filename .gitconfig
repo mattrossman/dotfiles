@@ -35,6 +35,7 @@
 	root = rev-parse --show-toplevel
 	ff = pull --ff
 	ms = merge --ff --squash
+	f = fetch
 [core]
 	editor = vim
 	excludesFile = ~/.gitignore.global
