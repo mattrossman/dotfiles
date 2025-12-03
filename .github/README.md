@@ -26,7 +26,7 @@ Install Homebrew
 Install packages
 
 ```bash
-brew install git vim zsh antigen gh
+brew install git vim zsh antigen gh zoxide
 ```
 
 (optional) Install casks

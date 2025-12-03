@@ -21,24 +21,19 @@ antigen use oh-my-zsh
 antigen bundle git
 antigen bundle git-fast
 
-# Faster version of the z plugin
-antigen bundle agkozak/zsh-z
-ZSHZ_UNCOMMON=1 # Improve its selection behavior
-
 # Syntax highlighting bundle.
 antigen bundle zsh-users/zsh-syntax-highlighting
 
 # Fish-like autosuggestions for zsh
 antigen bundle zsh-users/zsh-autosuggestions
 
+antigen bundle ajeetdsouza/zoxide
+
 # Load the theme.
 antigen theme robbyrussell
 
 # Tell Antigen that you're done.
 antigen apply
-
-# Use fd for fzf, to respect .gitignore
-export FZF_DEFAULT_COMMAND='fdfind --type f'
 
 
 # Enable vim line editing with <C-x><C-e>
@@ -84,3 +79,11 @@ export PATH="$BUN_INSTALL/bin:$PATH"
 
 # Amazon Q post block. Keep at the bottom of this file.
 [[ -f "${HOME}/Library/Application Support/amazon-q/shell/zshrc.post.zsh" ]] && builtin source "${HOME}/Library/Application Support/amazon-q/shell/zshrc.post.zsh"
+
+# Added by LM Studio CLI (lms)
+export PATH="$PATH:/Users/matt/.lmstudio/bin"
+# End of LM Studio CLI section
+
+# Setup zoxide
+# https://github.com/ajeetdsouza/zoxide
+eval "$(zoxide init zsh)"
