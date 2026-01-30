@@ -8,6 +8,7 @@ alias c=cargo
 alias today="date '+%Y-%m-%d'"
 alias iterm="open -a iTerm $*"
 alias c=cursor
+alias g=git
 
 mmkdir() {
 	mkdir $1 && cd $1
