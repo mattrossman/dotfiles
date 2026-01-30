@@ -12,7 +12,19 @@ sudo apt update
 Install packages
 
 ```bash
-sudo apt install git vim zsh zsh-antigen
+sudo apt install git vim zsh build-essential
+```
+
+Install Homebrew
+
+```bash
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+```
+
+Install brew packages
+
+```bash
+brew install zinit zoxide
 ```
 
 ## MacOS
@@ -26,7 +38,7 @@ Install Homebrew
 Install packages
 
 ```bash
-brew install git vim zsh antigen gh zoxide
+brew install git vim zsh zinit gh zoxide
 ```
 
 (optional) Install casks
@@ -48,7 +60,7 @@ dotfiles checkout  # Might need to back stuff up first
 dotfiles config --local status.showUntrackedFiles no
 chsh -s $(which zsh)
 ```
-and you're done. Open up `vim` to auto install vim plugins, and run `zsh` to install antigen plugins.
+and you're done. Open up `vim` to auto install vim plugins, and run `zsh` to install zinit plugins.
 
 # Making changes
 

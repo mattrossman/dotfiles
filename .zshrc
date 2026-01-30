@@ -1,35 +1,24 @@
 # Copy all configuration from .bashrc
 [[ -e ~/.bashrc ]] && emulate sh -c 'source ~/.bashrc'
 
-source $HOME/.zsh/autosuggest.zsh
+# Zinit (via Homebrew)
+source $(brew --prefix)/opt/zinit/zinit.zsh
 
-ANTIGEN="$HOME/antigen.zsh"
-if [ ! -f "$ANTIGEN" ]; then
-	echo "Downloading Antigen to ${ANTIGEN}..."
-	curl -L git.io/antigen > $ANTIGEN
-fi
+# OMZ libs + theme
+zinit snippet OMZL::functions.zsh
+zinit snippet OMZL::async_prompt.zsh
+zinit snippet OMZL::git.zsh
+zinit snippet OMZL::theme-and-appearance.zsh
+zinit snippet OMZT::robbyrussell
 
-source $ANTIGEN
+# Plugins
+zinit light zsh-users/zsh-autosuggestions
+zinit light zsh-users/zsh-syntax-highlighting
 
-# Load the oh-my-zsh's library.
-antigen use oh-my-zsh
-
-# Bundles from oh-my-zsh
-antigen bundle git
-antigen bundle git-fast
-
-# Syntax highlighting bundle.
-antigen bundle zsh-users/zsh-syntax-highlighting
-
-# Fish-like autosuggestions for zsh
-antigen bundle zsh-users/zsh-autosuggestions
-
-# Load the theme.
-antigen theme robbyrussell
-
-# Tell Antigen that you're done.
-antigen apply
-
+# Autosuggestions config
+ZSH_AUTOSUGGEST_STRATEGY=(history completion)
+ZSH_AUTOSUGGEST_BUFFER_MAX_SIZE=20
+ZSH_AUTOSUGGEST_USE_ASYNC=true
 
 # Enable vim line editing with <C-x><C-e>
 autoload edit-command-line
