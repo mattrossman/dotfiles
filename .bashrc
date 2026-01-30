@@ -15,6 +15,24 @@ mmkdir() {
 	mkdir $1 && cd $1
 }
 
+mkproj() {
+  if [ -z "$1" ]; then
+    echo "Usage: mkproj <name>"
+    return 1
+  fi
+
+  mkdir "$(today)_$1"
+}
+
+mmkproj() {
+  if [ -z "$1" ]; then
+    echo "Usage: mmkproj <name>"
+    return 1
+  fi
+
+  mkdir "$(today)_$1" && cd "$(today)_$1"
+}
+
 if grep -s -i microsoft /proc/version; then
 	# WSL specific items
 	alias open=explorer.exe
@@ -34,3 +52,4 @@ eval "$(mise activate bash)"
 export PATH="$PATH:/Users/matt/.lmstudio/bin"
 # End of LM Studio CLI section
 
+export PATH="$HOME/.local/bin:$PATH"
