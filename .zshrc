@@ -57,4 +57,8 @@ export PATH="$PATH:/Users/matt/.lmstudio/bin"
 
 # Setup zoxide
 # https://github.com/ajeetdsouza/zoxide
-eval "$(zoxide init zsh)"
+# Skip zoxide initialization in Cursor Agent sessions (sandbox can't write to database)
+if [[ -z "$CURSOR_AGENT" ]]; then
+  eval "$(zoxide init zsh)"
+fi
+
