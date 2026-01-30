@@ -1,7 +1,11 @@
 [settings]
 idiomatic_version_file_enable_tools = ["node"]
+lockfile = true
 
 [tools]
+aws-cli = "2.28.15"
+biome = "2.2.2"
 node = "24.5.0"
 "npm:@antfu/ni" = "25.0.0"
-pnpm = "10.14.0"
+"npm:yalc" = "1.0.0-pre.53"
+pnpm = "10.18.0"
