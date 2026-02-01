@@ -9,6 +9,7 @@ alias today="date '+%Y-%m-%d'"
 alias iterm="open -a iTerm $*"
 alias c=cursor
 alias g=git
+alias o=opencode
 
 mmkdir() {
 	mkdir $1 && cd $1
