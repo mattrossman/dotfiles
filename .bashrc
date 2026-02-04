@@ -10,6 +10,7 @@ alias iterm="open -a iTerm $*"
 alias c=cursor
 alias g=git
 alias o=opencode
+alias init-agents='touch AGENTS.md && ln -s AGENTS.md CLAUDE.md'
 
 mmkdir() {
 	mkdir $1 && cd $1
