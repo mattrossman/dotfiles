@@ -2,13 +2,7 @@
 	"$schema": "https://opencode.ai/config.json",
 	"plugin": [
 		"@mohak34/opencode-notifier@0.1.26"
-	],
-	"tui": {
-		"scroll_speed": 1,
-		"scroll_acceleration": {
-			"enabled": false
-		}
-	},
+  ],
 	"permission": {
 		"*": "ask",
 		"read": {
@@ -27,20 +21,88 @@
 		"todowrite": "allow",
 		"todoread": "allow",
 		"websearch": "allow",
+		"webfetch": "allow",
 		"codesearch": "allow",
 		"list": "allow",
 		"bash": {
 			"*": "ask",
+			// shell: basic readonly
+			"ls": "allow",
+			"ls *": "allow",
+			"date": "allow",
+			"date *": "allow",
+			"pwd": "allow",
+			"whoami": "allow",
+			"uname": "allow",
+			"uname *": "allow",
+			"which": "allow",
+			"which *": "allow",
+			"command -v *": "allow",
+			"git --version": "allow",
+			"node --version": "allow",
+			"npm --version": "allow",
+			"python3 --version": "allow",
+			// opencode: safe diagnostics
+			"opencode --help": "allow",
+			"opencode debug --help": "allow",
+			"opencode debug paths": "allow",
+			"opencode debug paths *": "allow",
+			"opencode debug skill": "allow",
+			"opencode debug skill *": "allow",
+			"opencode debug scrap": "allow",
+			"opencode debug scrap *": "allow",
+			// git: read-only allowlist
+			"git status": "allow",
+			"git status *": "allow",
+			"git log": "allow",
 			"git log *": "allow",
-			"git status *": "allow"
+			"git diff": "allow",
+			"git diff *": "allow",
+			"git show": "allow",
+			"git show *": "allow",
+			"git blame *": "allow",
+			"git reflog": "allow",
+			"git reflog *": "allow",
+			"git rev-parse *": "allow",
+			"git symbolic-ref *": "allow",
+			"git merge-base *": "allow",
+			"git describe *": "allow",
+			"git name-rev *": "allow",
+			"git rev-list *": "allow",
+			"git show-ref": "allow",
+			"git show-ref *": "allow",
+			"git for-each-ref *": "allow",
+			"git ls-files": "allow",
+			"git ls-files *": "allow",
+			"git ls-tree *": "allow",
+			"git cat-file *": "allow",
+			"git grep *": "allow",
+			"git shortlog": "allow",
+			"git shortlog *": "allow",
+			"git help *": "allow",
+			"git branch --show-current": "allow",
+			"git branch --show-current *": "allow",
+			"git branch --list": "allow",
+			"git branch --list *": "allow",
+			"git tag --list": "allow",
+			"git tag --list *": "allow",
+			"git remote -v": "allow",
+			"git remote show *": "allow",
+			"git config --get *": "allow",
+			"git config --get-all *": "allow",
+			"git config --list": "allow",
+			"git config --list *": "allow",
+			"git stash list": "allow",
+			"git stash show": "allow",
+			"git stash show *": "allow",
+			"git worktree list": "allow",
+			"git submodule status": "allow",
+			"git submodule status *": "allow"
 		}
 	},
 	"agent": {
 		"Allow Edits": {
 			"mode": "primary",
-			"tools": {
-				"*": true
-			},
 			"permission": {
 				"edit": "allow"
 			}
