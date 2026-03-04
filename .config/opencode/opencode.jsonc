@@ -42,6 +42,13 @@
 			"node --version": "allow",
 			"npm --version": "allow",
 			"python3 --version": "allow",
+			// mise: read-only task discovery
+			"mise tasks": "allow",
+			"mise tasks ls": "allow",
+			"mise tasks ls *": "allow",
+			"mise tasks info *": "allow",
+			"mise tasks deps *": "allow",
+			"mise tasks validate *": "allow",
 			// opencode: safe diagnostics
 			"opencode --help": "allow",
 			"opencode debug --help": "allow",
