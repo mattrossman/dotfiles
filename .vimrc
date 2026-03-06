@@ -11,6 +11,7 @@ Plug 'yuezk/vim-js'
 Plug 'maxmellon/vim-jsx-pretty'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
+Plug 'tpope/vim-commentary'
 call plug#end()
 
 set showcmd " visual feedback of keystrokes
@@ -40,6 +41,8 @@ noremap <leader>a ggVG
 
 " Format file
 noremap <leader>f ggVG=
+nmap <leader>/ gcc
+xmap <leader>/ gc
 
 " Quick macro execution with Q
 noremap Q @q
@@ -81,4 +84,3 @@ if executable(s:clip)
 		autocmd TextYankPost * call system('echo '.shellescape(join(v:event.regcontents, "\<CR>")).' | '.s:clip)
 	augroup END
 end
-
