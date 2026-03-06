@@ -1,2 +1,40 @@
 #!/usr/bin/env sh
-exec /usr/bin/git --git-dir="$HOME/.dotfiles.git" --work-tree="$HOME" "$@"
+
+set -eu
+
+if [ "${1-}" = "status" ]; then
+  shift
+
+  if [ "${DOT_ALLOW_UNTRACKED_STATUS-0}" != "1" ]; then
+    prev_wants_value=0
+    for arg in "$@"; do
+      if [ "$prev_wants_value" -eq 1 ]; then
+        case "$arg" in
+          no) ;;
+          *)
+            printf '%s\n' "dot: refusing status untracked scan in \$HOME (use --untracked-files=no, -uno, or set DOT_ALLOW_UNTRACKED_STATUS=1)." >&2
+            exit 2
+            ;;
+        esac
+        prev_wants_value=0
+        continue
+      fi
+
+      case "$arg" in
+        --untracked-files)
+          prev_wants_value=1
+          ;;
+        --untracked-files=no|-uno)
+          ;;
+        --untracked-files=*|-u*|--all)
+          printf '%s\n' "dot: refusing status untracked scan in \$HOME (use --untracked-files=no, -uno, or set DOT_ALLOW_UNTRACKED_STATUS=1)." >&2
+          exit 2
+          ;;
+      esac
+    done
+  fi
+
+  set -- status --untracked-files=no "$@"
+fi
+
+exec /usr/bin/git -c status.showUntrackedFiles=no --git-dir="$HOME/.dotfiles.git" --work-tree="$HOME" "$@"
