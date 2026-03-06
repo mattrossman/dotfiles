@@ -1,5 +1,3 @@
-alias dotfiles='git --git-dir=$HOME/.dotfiles.git/ --work-tree=$HOME'
-alias dot=dotfiles
 alias y=yarn
 alias p=pnpm
 alias b=bun
@@ -48,9 +46,3 @@ fi
 eval "$(mise activate bash)"
 
 [[ -f "$HOME/.cargo/env" ]] && . "$HOME/.cargo/env"
-
-# Added by LM Studio CLI (lms)
-export PATH="$PATH:/Users/matt/.lmstudio/bin"
-# End of LM Studio CLI section
-
-export PATH="$HOME/.local/bin:$PATH"

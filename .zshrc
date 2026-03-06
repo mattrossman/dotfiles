@@ -25,24 +25,8 @@ autoload edit-command-line
 zle -N edit-command-line
 bindkey "^X^E" edit-command-line
 
-# pnpm
-export PNPM_HOME="/Users/matt/Library/pnpm"
-case ":$PATH:" in
-  *":$PNPM_HOME:"*) ;;
-  *) export PATH="$PNPM_HOME:$PATH" ;;
-esac
-# pnpm end
-
 # bun completions
 [ -s "/Users/matt/.bun/_bun" ] && source "/Users/matt/.bun/_bun"
-
-# bun
-export BUN_INSTALL="$HOME/.bun"
-export PATH="$BUN_INSTALL/bin:$PATH"
-
-# Added by LM Studio CLI (lms)
-export PATH="$PATH:/Users/matt/.lmstudio/bin"
-# End of LM Studio CLI section
 
 # Setup zoxide
 # https://github.com/ajeetdsouza/zoxide
@@ -50,4 +34,3 @@ export PATH="$PATH:/Users/matt/.lmstudio/bin"
 if [[ -z "$CURSOR_AGENT" ]]; then
   eval "$(zoxide init zsh)"
 fi
-

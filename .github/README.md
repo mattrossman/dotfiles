@@ -55,19 +55,20 @@ Backup any boilerplate `.bashrc` as needed, and run:
 cd
 echo ".dotfiles" >> .gitignore
 git clone --bare git@github.com:mattrossman/dotfiles.git $HOME/.dotfiles.git
-alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles.git/ --work-tree=$HOME'
-dotfiles checkout  # Might need to back stuff up first
-dotfiles config --local status.showUntrackedFiles no
+/usr/bin/git --git-dir=$HOME/.dotfiles.git --work-tree=$HOME checkout  # Might need to back stuff up first
+/usr/bin/git --git-dir=$HOME/.dotfiles.git --work-tree=$HOME config --local status.showUntrackedFiles no
+chmod +x $HOME/.local/bin/dot
 chsh -s $(which zsh)
 ```
 and you're done. Open up `vim` to auto install vim plugins, and run `zsh` to install zinit plugins.
 
 # Making changes
 
-`PATH` modifications go in `.bash_profile` which is sourced from `.bashrc` and by extension `.zshrc`.
+Put cross-shell, non-interactive-safe environment and `PATH` exports in `.zshenv`.
+Keep `.zshrc` focused on interactive shell UX (aliases, prompt, plugins, keybinds, completions).
 
 ```bash
-# ~/.bash_profile
+# ~/.zshenv
 
 export PATH="$HOME/.somefolder:$PATH"
 ```
