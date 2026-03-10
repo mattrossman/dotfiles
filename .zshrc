@@ -34,3 +34,6 @@ bindkey "^X^E" edit-command-line
 if [[ -z "$CURSOR_AGENT" ]]; then
   eval "$(zoxide init zsh)"
 fi
+
+# https://mise.jdx.dev/cli/activate.html#mise-activate
+eval "$(mise activate zsh)"
