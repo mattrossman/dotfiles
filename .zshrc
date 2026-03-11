@@ -1,19 +1,35 @@
 # Copy all configuration from .bashrc
 [[ -e ~/.bashrc ]] && emulate sh -c 'source ~/.bashrc'
 
-# Zinit (via Homebrew)
-source $(brew --prefix)/opt/zinit/zinit.zsh
+# Zinit loader (portable across Homebrew and XDG install paths)
+if (( ! $+commands[zinit] )); then
+  if (( $+commands[brew] )); then
+    HOMEBREW_PREFIX="$(brew --prefix 2>/dev/null)"
+    if [[ -n "$HOMEBREW_PREFIX" && -f "$HOMEBREW_PREFIX/opt/zinit/zinit.zsh" ]]; then
+      source "$HOMEBREW_PREFIX/opt/zinit/zinit.zsh"
+    fi
+  fi
+
+  if (( ! $+commands[zinit] )); then
+    ZINIT_HOME="${XDG_DATA_HOME:-$HOME/.local/share}/zinit/zinit.git"
+    if [[ -f "$ZINIT_HOME/zinit.zsh" ]]; then
+      source "$ZINIT_HOME/zinit.zsh"
+    fi
+  fi
+fi
 
 # OMZ libs + theme
-zinit snippet OMZL::functions.zsh
-zinit snippet OMZL::async_prompt.zsh
-zinit snippet OMZL::git.zsh
-zinit snippet OMZL::theme-and-appearance.zsh
-zinit snippet OMZT::robbyrussell
+if (( $+commands[zinit] )); then
+  zinit snippet OMZL::functions.zsh
+  zinit snippet OMZL::async_prompt.zsh
+  zinit snippet OMZL::git.zsh
+  zinit snippet OMZL::theme-and-appearance.zsh
+  zinit snippet OMZT::robbyrussell
 
-# Plugins
-zinit light zsh-users/zsh-autosuggestions
-zinit light zsh-users/zsh-syntax-highlighting
+  # Plugins
+  zinit light zsh-users/zsh-autosuggestions
+  zinit light zsh-users/zsh-syntax-highlighting
+fi
 
 # Autosuggestions config
 ZSH_AUTOSUGGEST_STRATEGY=(history completion)
@@ -26,14 +42,17 @@ zle -N edit-command-line
 bindkey "^X^E" edit-command-line
 
 # bun completions
-[ -s "/Users/matt/.bun/_bun" ] && source "/Users/matt/.bun/_bun"
+[ -s "$HOME/.bun/_bun" ] && source "$HOME/.bun/_bun"
 
 # Setup zoxide
 # https://github.com/ajeetdsouza/zoxide
 # Skip zoxide initialization in Cursor Agent sessions (sandbox can't write to database)
 if [[ -z "$CURSOR_AGENT" ]]; then
-  eval "$(zoxide init zsh)"
+  (( $+aliases[zi] )) && unalias zi
+  eval "$(zoxide init zsh --no-aliases)"
 fi
 
 # https://mise.jdx.dev/cli/activate.html#mise-activate
-eval "$(mise activate zsh)"
+if (( $+commands[mise] )); then
+  eval "$(mise activate zsh)"
+fi
