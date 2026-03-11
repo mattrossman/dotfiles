@@ -2,7 +2,7 @@
 [[ -e ~/.bashrc ]] && emulate sh -c 'source ~/.bashrc'
 
 # Zinit loader (portable across Homebrew and XDG install paths)
-if (( ! $+commands[zinit] )); then
+if (( ! $+functions[zinit] )); then
   if (( $+commands[brew] )); then
     HOMEBREW_PREFIX="$(brew --prefix 2>/dev/null)"
     if [[ -n "$HOMEBREW_PREFIX" && -f "$HOMEBREW_PREFIX/opt/zinit/zinit.zsh" ]]; then
@@ -10,16 +10,14 @@ if (( ! $+commands[zinit] )); then
     fi
   fi
 
-  if (( ! $+commands[zinit] )); then
-    ZINIT_HOME="${XDG_DATA_HOME:-$HOME/.local/share}/zinit/zinit.git"
-    if [[ -f "$ZINIT_HOME/zinit.zsh" ]]; then
-      source "$ZINIT_HOME/zinit.zsh"
-    fi
+  ZINIT_HOME="${XDG_DATA_HOME:-$HOME/.local/share}/zinit/zinit.git"
+  if [[ -f "$ZINIT_HOME/zinit.zsh" ]]; then
+    source "$ZINIT_HOME/zinit.zsh"
   fi
 fi
 
 # OMZ libs + theme
-if (( $+commands[zinit] )); then
+if (( $+functions[zinit] )); then
   zinit snippet OMZL::functions.zsh
   zinit snippet OMZL::async_prompt.zsh
   zinit snippet OMZL::git.zsh
