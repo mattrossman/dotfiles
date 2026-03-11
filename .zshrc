@@ -47,7 +47,7 @@ bindkey "^X^E" edit-command-line
 # Skip zoxide initialization in Cursor Agent sessions (sandbox can't write to database)
 if [[ -z "$CURSOR_AGENT" ]]; then
   (( $+aliases[zi] )) && unalias zi
-  eval "$(zoxide init zsh --no-aliases)"
+  eval "$(zoxide init zsh)"
 fi
 
 # https://mise.jdx.dev/cli/activate.html#mise-activate
