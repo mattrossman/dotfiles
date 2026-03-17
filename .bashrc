@@ -15,21 +15,15 @@ mmkdir() {
 }
 
 mkproj() {
-  if [ -z "$1" ]; then
-    echo "Usage: mkproj <name>"
-    return 1
-  fi
-
-  mkdir "$(today)_$1"
+  local dir="${1:+$(today)_$1}"
+  dir="${dir:-$(today)}"
+  mkdir "$dir"
 }
 
 mmkproj() {
-  if [ -z "$1" ]; then
-    echo "Usage: mmkproj <name>"
-    return 1
-  fi
-
-  mkdir "$(today)_$1" && cd "$(today)_$1"
+  local dir="${1:+$(today)_$1}"
+  dir="${dir:-$(today)}"
+  mkdir "$dir" && cd "$dir"
 }
 
 if grep -s -i microsoft /proc/version; then
