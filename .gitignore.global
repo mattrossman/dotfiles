@@ -1,1 +1,3 @@
 ignore/
+.agents/scratch
+.claude/plans
