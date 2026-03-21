@@ -1,19 +1,12 @@
-# Writing documents
-
-When asked to research, write a report, or give an in depth answer, prefer writing a `.md` file over sharing findings in chat.
-
-When prompted with a feature request or bug triage, assume you need to write a doc about it before making code changes UNLESS a doc for you session already exists OR the bug is reported after you already made code changes.
-
-These docs should live in a timestamped folder for the session.
-
-> If you need a timestamp, use `date +"%Y-%m-%dT%H:%M:%S"`
-
-The folder should live in a .gitignore-ed folder close to your working directory. Globally, we ignore any folder called "ignore/" so prefer placing session folders in "ignore/sessions/"
-
 # Citing claims
 
 When making claims or presenting research, always to to provide URLs to evidence of your claims from trusted sources like docs pages, GitHub permalinks, blog posts or tweets.
 I will not take your word for things usually without evidence.
+
+# Commits
+
+Follow https://conventionalcommits.org/
+One line only, only include body in rare cases where additional context is essential.
 
 # PRs
 

@@ -1,8 +1,9 @@
 {
 	"$schema": "https://opencode.ai/config.json",
 	"plugin": [
-		"@mohak34/opencode-notifier@0.1.26"
-  ],
+		"@mohak34/opencode-notifier@0.1.26",
+		"@plannotator/opencode@latest"
+	],
 	// Shared config lives here and is safe to track in git.
 	// Machine-private overrides live in ~/.config/opencode/opencode.local.jsonc
 	// and are loaded via OPENCODE_CONFIG in ~/.bash_profile.
