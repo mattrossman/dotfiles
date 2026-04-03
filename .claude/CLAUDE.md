@@ -1,0 +1,1 @@
+/Users/matt/.config/opencode/AGENTS.md
