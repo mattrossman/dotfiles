@@ -19,6 +19,10 @@ PR bodies should be ultra concise, 1-3 bullets of the changes without going too 
 Avoid superflous formatting / sectioning.
 Cite sources (e.g. docs URLS) that motivate/validate changes when possible.
 
+# Issues
+
+Use plain-language issue titles. Do not use conventional commit prefixes or commit-style formatting in issue titles.
+
 # Dotfiles git workflow
 
 For dotfiles changes under `$HOME`, use the `dot` command for all git operations (`status`, `diff`, `add`, `commit`, `push`) instead of plain `git`.
