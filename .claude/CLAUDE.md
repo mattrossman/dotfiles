@@ -1,1 +1,5 @@
-/Users/matt/.config/opencode/AGENTS.md
+# UNIVERSAL INSTRUCTIONS
+@~/.agents/AGENTS.md
+
+# MACHINE-SPECIFIC INSTRUCTIONS
+@~/.agents/AGENTS.local.md

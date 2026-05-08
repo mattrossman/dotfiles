@@ -4,6 +4,9 @@
 		"@mohak34/opencode-notifier@0.1.26",
 		"@plannotator/opencode@latest"
 	],
+	"instructions": [
+		"~/.agents/AGENTS.local.md"
+	],
 	// Shared config lives here and is safe to track in git.
 	// Machine-private overrides live in ~/.config/opencode/opencode.local.jsonc
 	// and are loaded via OPENCODE_CONFIG in ~/.bash_profile.
