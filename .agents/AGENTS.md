@@ -8,6 +8,8 @@ I will not take your word for things usually without evidence.
 Follow https://conventionalcommits.org/
 One line only, only include body in rare cases where additional context is essential.
 
+Prefer existing commit-scope patterns from the repository, and if none are established, omit the scope rather than inventing one.
+
 # PRs
 
 When asked to open a PR:
