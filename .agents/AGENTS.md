@@ -1,3 +1,9 @@
+# Local instruction loading
+- Codex: ALWAYS read `~/.agents/AGENTS.local.md` at the start of each session
+- Claude Code: already imported by `~/.claude/CLAUDE.md`.
+- OpenCode: already loaded via `~/.config/opencode/opencode.jsonc`.
+
+
 # Verifying claims
   
 - When making claims, always cite evidence (URL to docs, file/line specifier, etc.)
