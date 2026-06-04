@@ -1,6 +1,7 @@
 [settings]
-idiomatic_version_file_enable_tools = ["node"]
+idiomatic_version_file_enable_tools = ["node", "pnpm"]
 lockfile = true
+experimental = true
 
 [tools]
 aws-cli = "2.28.15"
