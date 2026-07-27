@@ -21,13 +21,16 @@
 # TypeScript
 
 - Prefer tiny `if` + `push`/`add` accumulation over clever chains when it reads clearer, but keep larger conditional flows declarative where mutation would obscure the logic.
+- Never use `as` casts or `@ts-ignore`. Avoid `@ts-expect-error` wherever possible, it's only acceptable as a last resort when a library has incorrect types. Prefer proper type narrowing and type guards.
 
 # Commits
 
 - Do not commit during feature work unless explicitly asked. Leave changes uncommitted so Matt can review the full diff in VS Code's built-in Source Control view before deciding what to commit.
+- Do not commit new follow-up changes unless explicitly asked to commit that specific change. Permission to commit current work before starting another change does not carry forward to later changes.
 - Don't commit to default branch (e.g. `main`, `master`, `develop`), instead checkout a feature branch with semantic names like `feat/my-feature`, `chore/some-bump`, etc.
 - When switching back to the default branch, prefer pulling with `--ff` to not create merge commits
 - Keep commit messages brief and follow https://conventionalcommits.org and git history conventions
+- Prefer existing commit-scope patterns from the repository, and if none are established, omit the scope rather than inventing one.
 - Don't include a body in commit messages except in rare scenarios where links to web content is necessary context. Prefer putting bodies in the PR instead.
 - Avoid `--amend` when adding separate concerns, prefer creating new commit(s)
 
@@ -39,8 +42,6 @@
 - Avoid force pushing
 - If force pushing is necessary, prefer `--force-with-lease`
 - If push fails because of new work on remote, try `git pull --ff --rebase` to update local branch + attempt rebase of local commits in one command
-
-Prefer existing commit-scope patterns from the repository, and if none are established, omit the scope rather than inventing one.
 
 # Outbound communication
 
@@ -57,10 +58,9 @@ Prefer existing commit-scope patterns from the repository, and if none are estab
 - Default to `--draft` PRs
 - Never mark a draft PR ready for review (`gh pr ready`, undrafting) — that decision belongs to a human. Only draft PRs, never undraft them.
 - PR title MUST follow conventional commit style (feat:, fix:, chore:, etc.)
-- PR bodies should be ultra concise, 1-3 bullets of the changes without going too deep in the weeds.
+- Don't default to bullet lists in PR bodies. For small PRs with one primary change, use 1 short paragraph or 1-2 sentences. Use bullets only when there are multiple meaningful changes worth scanning independently. Include output snippets when terminal/UI output changes.
 - When creating or updating PR bodies with multi-line content via CLI, write the body to a temp file and pass it with `--body-file`. Do not pass escaped `\n` sequences inline because GitHub will render them literally.
 - Avoid superflous formatting / sectioning.
-- Cite sources (e.g. docs URLS) that motivate/validate changes when possible.
 - After pushing commits to a pre-existing PR, check if the PR body needs updating — specifically if any bullet points reference things that are now outdated or inaccurate. Offer to update only if something is wrong or missing that a reviewer would need. Do not add bullets just because new commits were pushed; keep PR bodies minimal. Exception: if any incidental fixes were included alongside the main work, add a bullet for each since they won't be apparent from the PR title.
 
 # Issues
