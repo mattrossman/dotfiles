@@ -8,16 +8,23 @@
 - `~/.agents/AGENTS.md` is shared, version-controlled memory and would be committed to the dotfiles repo when changed intentionally.
 - `~/.agents/AGENTS.local.md` is local/personal memory for machine-specific instructions. Do not stage or commit it.
 
+# Installing tooling
+- Ask first before installing a skill or any global/user-scope tooling (anything writing outside the current repo, e.g. `~/.claude`, `~/.agents`); local project deps (`pnpm install` etc.) don't need to ask.
 
 # Verifying claims
   
 - When making claims, always cite evidence (URL to docs, file/line specifier, etc.)
 - When citing URLs, write out the full URL instead of hyperlinked label so I can easily copy/paste from terminal — this applies to GitHub issues too (never just mention "issue #123", always include the full URL)
-- If evidence is helpful to a PR reviewer, paste the URL(s) in a bullet list of "References" at the end of PR body (bold header) before Linear magic words.
+- If evidence is helpful to a PR reviewer, paste the URL(s) in a bullet list of "References" at the end of PR body (bold header) before Linear magic words. Do not duplicate a Linear issue URL in References when a `Closes AI-123` or `Ref AI-123` magic keyword already links it.
 - When doing research, always include links to documentation that back up findings. Team members need trusted sources to verify claims — don't expect them to take things at face value.
 
+# TypeScript
+
+- Prefer tiny `if` + `push`/`add` accumulation over clever chains when it reads clearer, but keep larger conditional flows declarative where mutation would obscure the logic.
+
 # Commits
-  
+
+- Do not commit during feature work unless explicitly asked. Leave changes uncommitted so Matt can review the full diff in VS Code's built-in Source Control view before deciding what to commit.
 - Don't commit to default branch (e.g. `main`, `master`, `develop`), instead checkout a feature branch with semantic names like `feat/my-feature`, `chore/some-bump`, etc.
 - When switching back to the default branch, prefer pulling with `--ff` to not create merge commits
 - Keep commit messages brief and follow https://conventionalcommits.org and git history conventions
@@ -27,7 +34,7 @@
 # Pushing
   
 - Only push when explicitly instructed — opening a PR does not imply permission to push subsequent commits.
-- If a push is needed (e.g. to include commits in an existing PR), say so and ask the user to push rather than attempting it without permission.
+- If a push hasn't been authorized and one is needed, say so rather than pushing without permission. Permission granted for a multi-step operation ("commit and push") covers the whole sequence.
 - Never update PR metadata (body, title, labels) or post replies to review threads before the relevant commits are pushed; the remote must reflect the changes first so reviewers can verify.
 - Avoid force pushing
 - If force pushing is necessary, prefer `--force-with-lease`
@@ -35,12 +42,23 @@
 
 Prefer existing commit-scope patterns from the repository, and if none are established, omit the scope rather than inventing one.
 
+# Outbound communication
+
+- Treat code/git operations and human communication as separate permissions. Permission to commit, push, open/update a PR, or update a branch does not imply permission to post PR comments, review replies, issue comments, Slack messages, emails, Linear comments, or any other outward-facing message.
+- Before posting or updating public/shared human-facing communication on Matt's behalf, ask explicitly unless Matt has specifically requested that exact message/action in the current turn.
+- Drafting proposed wording is fine when useful, but do not send/post it without explicit approval.
+
 # PRs
 
 - Make sure you're on a branch like `feat/something`, `chore/something`, etc. in the vein of conventional commits
+- Before opening a PR, sync the branch onto the latest base branch (e.g. fetch and merge in the newest `main`) so the PR doesn't open with conflicts against a stale base.
+  - If merging the base reveals conflicts: trivial ones you can resolve yourself, but prefer a merge commit from the base branch over a rebase (avoids rewriting history on a branch that may already be pushed).
+  - If the conflicts are nontrivial, stop and check in with me before resolving them.
 - Default to `--draft` PRs
+- Never mark a draft PR ready for review (`gh pr ready`, undrafting) — that decision belongs to a human. Only draft PRs, never undraft them.
 - PR title MUST follow conventional commit style (feat:, fix:, chore:, etc.)
 - PR bodies should be ultra concise, 1-3 bullets of the changes without going too deep in the weeds.
+- When creating or updating PR bodies with multi-line content via CLI, write the body to a temp file and pass it with `--body-file`. Do not pass escaped `\n` sequences inline because GitHub will render them literally.
 - Avoid superflous formatting / sectioning.
 - Cite sources (e.g. docs URLS) that motivate/validate changes when possible.
 - After pushing commits to a pre-existing PR, check if the PR body needs updating — specifically if any bullet points reference things that are now outdated or inaccurate. Offer to update only if something is wrong or missing that a reviewer would need. Do not add bullets just because new commits were pushed; keep PR bodies minimal. Exception: if any incidental fixes were included alongside the main work, add a bullet for each since they won't be apparent from the PR title.
