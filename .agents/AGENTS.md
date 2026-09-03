@@ -17,6 +17,7 @@
 - When citing URLs, write out the full URL instead of hyperlinked label so I can easily copy/paste from terminal — this applies to GitHub issues too (never just mention "issue #123", always include the full URL)
 - If evidence is helpful to a PR reviewer, paste the URL(s) in a bullet list of "References" at the end of PR body (bold header) before Linear magic words. Do not duplicate a Linear issue URL in References when a `Closes AI-123` or `Ref AI-123` magic keyword already links it.
 - When doing research, always include links to documentation that back up findings. Team members need trusted sources to verify claims — don't expect them to take things at face value.
+- When unusual errors occur before a third-party service executes our code, check that service's public status page before retrying, batching, or changing our implementation.
 
 # TypeScript
 
