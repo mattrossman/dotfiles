@@ -53,6 +53,7 @@
 # PRs
 
 - Make sure you're on a branch like `feat/something`, `chore/something`, etc. in the vein of conventional commits
+- PR hygiene: do not link personal fork or placeholder PRs from an upstream PR unless explicitly requested. GitHub turns those links into discoverable cross-references; link only the canonical upstream PR when it is ready to be referenced.
 - Before opening a PR, sync the branch onto the latest base branch (e.g. fetch and merge in the newest `main`) so the PR doesn't open with conflicts against a stale base.
   - If merging the base reveals conflicts: trivial ones you can resolve yourself, but prefer a merge commit from the base branch over a rebase (avoids rewriting history on a branch that may already be pushed).
   - If the conflicts are nontrivial, stop and check in with me before resolving them.
