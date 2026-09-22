@@ -82,3 +82,21 @@
 - `dot` is the wrapper for the bare repo at `$HOME/.dotfiles.git` with work tree `$HOME`.
 - Never run `dot status` with untracked scanning across `$HOME` (`--untracked-files=all`, `--untracked-files=normal`, `-u`, etc.).
 - Use `dot status` by default; only check specific paths when you need to inspect untracked files.
+
+# Session titles
+
+Name sessions `<emoji> <Category> - <subject> [- <qualifier>]`. Set it at the
+start, rename when stale. Subject is 3-5 words, lowercase. Qualifier only to
+tell near-identical sessions apart (PR number, person, phase, repo). Leave
+untagged when nothing fits.
+
+- 🔨 Build - writing a change
+- 👀 Review - reading a diff
+- 📊 Research - finding out what's true, from code, data, or people
+- 💬 Discussion - working out what we should do
+- 📝 Draft - copy that goes to humans
+- 🏠 Meta - how I work, my own tooling and setup
+- 🧭 Triage - what's next, what's waiting
+
+🔨 Build - branch cost elicitation - PR 402
+👀 Review - search_docs rereview - Pedro
