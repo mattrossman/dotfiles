@@ -1,0 +1,6 @@
+{
+  "behaviour": "remove-line",
+  "showConfirmation": true,
+  "affectedFilesThreshold": 1,
+  "dryRun": false
+}
