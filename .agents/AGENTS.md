@@ -37,7 +37,7 @@
 
 # Pushing
   
-- Only push when explicitly instructed — opening a PR does not imply permission to push subsequent commits.
+- Push when explicitly requested or when necessary to complete an authorized operation. Asking to open a PR authorizes the initial push needed to create it; it does not authorize pushing subsequent commits.
 - If a push hasn't been authorized and one is needed, say so rather than pushing without permission. Permission granted for a multi-step operation ("commit and push") covers the whole sequence.
 - Never update PR metadata (body, title, labels) or post replies to review threads before the relevant commits are pushed; the remote must reflect the changes first so reviewers can verify.
 - Avoid force pushing
