@@ -3,6 +3,9 @@
 - Claude Code: already imported by `~/.claude/CLAUDE.md`.
 - OpenCode: already loaded via `~/.config/opencode/opencode.jsonc`.
 
+# Agent guidance
+- "Agent guidance" means the maintained instructions and reference material that steer coding agents, including memory files, repository instructions, and skills.
+
 # Agent memory
 - "Agent memory" or just "memory" refers to the `.md` instruction files under `~/.agents/` which are loaded as context in each session.
 - `~/.agents/AGENTS.md` is shared, version-controlled memory and would be committed to the dotfiles repo when changed intentionally.
