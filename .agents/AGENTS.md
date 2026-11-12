@@ -5,6 +5,9 @@
 
 # Agent guidance
 - "Agent guidance" means the maintained instructions and reference material that steer coding agents, including memory files, repository instructions, and skills.
+- Before adding or changing agent guidance, check applicable memory, repository instructions, and skills for an existing source of truth. Update the most specific existing source rather than creating overlapping rules that can drift or conflict.
+- Before drafting shared guidance, separate reusable workflow instructions from work-, organization-, or machine-specific defaults. Keep those defaults in local guidance unless explicitly requested in the shared source. Optional integrations should activate only when requested or configured for the task. Having a tool installed does not enable every workflow it supports.
+- Check the draft for a fresh user or another machine without those optional integrations. It should still work without creating unrelated artifacts or requiring setup outside the requested workflow.
 
 # Agent memory
 - "Agent memory" or just "memory" refers to the `.md` instruction files under `~/.agents/` which are loaded as context in each session.
@@ -23,13 +26,16 @@
 - When making claims, always cite evidence (URL to docs, file/line specifier, etc.)
 - When citing URLs, write out the full URL instead of hyperlinked label so I can easily copy/paste from terminal — this applies to GitHub issues too (never just mention "issue #123", always include the full URL)
 - Exception for Linear issues: link them as a hyperlink labeled with the issue ID and title, like Linear's copy format: `[AI-123: Issue title](https://linear.app/...)`. A bare ID or URL doesn't tell me what the issue is about. If this makes copy/paste painful in a terminal, revisit.
-- If evidence is helpful to a PR reviewer, paste the URL(s) in a bullet list of "References" at the end of PR body (bold header) before Linear magic words. Do not duplicate a Linear issue URL in References when a `Closes AI-123` or `Ref AI-123` magic keyword already links it.
 - When doing research, always include links to documentation that back up findings. Team members need trusted sources to verify claims — don't expect them to take things at face value.
 - When unusual errors occur before a third-party service executes our code, check that service's public status page before retrying, batching, or changing our implementation.
 - When I say "test", I mean verifying the real behavior end to end, like running the thing and doing a round trip (make a real request, confirm the result landed). Don't answer with unit test commands. Mention unit tests only as a supplement.
 - Before proposing or doing an action on a Linear issue, PR, or Slack thread (close, comment, reply, create), re-read its current state in that same turn. I may act on the same objects while we work, so anything read earlier in the session can be stale. When a fact comes from an earlier read, say so.
 
 # Showing work
+
+- When iterating on UI with live reloading, apply small visual changes as you propose them so I can see the result.
+
+- When saying a behavior will change in future, distinguish a change for this conversation from durable guidance. If guidance was changed, identify the file and show the relevant text; if it was not, say so and do not imply the preference was saved.
 
 - When I ask to see a diff, paste it into the reply as a fenced ```diff block. Tool output is not reliably visible to me, and some harnesses collapse it behind a summary line.
 - Never write "diff above" or "see above" and point at a command you ran. If it is not in the reply body, I did not see it.
@@ -59,7 +65,7 @@
 
 - Do not commit during feature work unless explicitly asked. Leave changes uncommitted so Matt can review the full diff in VS Code's built-in Source Control view before deciding what to commit.
 - Do not commit new follow-up changes unless explicitly asked to commit that specific change. Permission to commit current work before starting another change does not carry forward to later changes.
-- Don't commit to default branch (e.g. `main`, `master`, `develop`), instead checkout a feature branch with semantic names like `feat/my-feature`, `chore/some-bump`, etc.
+- By default, commit on a feature branch with a semantic name like `feat/my-feature` or `chore/some-bump`, rather than the default branch (e.g. `main`, `master`, `develop`). Follow repository instructions when they specify a different branch workflow.
 - When switching back to the default branch, prefer pulling with `--ff` to not create merge commits
 - Keep commit messages brief and follow https://conventionalcommits.org and git history conventions
 - Prefer existing commit-scope patterns from the repository, and if none are established, omit the scope rather than inventing one.
@@ -75,11 +81,15 @@
 - If force pushing is necessary, prefer `--force-with-lease`
 - If push fails because of new work on remote, try `git pull --ff --rebase` to update local branch + attempt rebase of local commits in one command
 
+# Repository settings
+
+- Never create, change, or delete repository settings, including secrets and variables, without my explicit authorization for that action.
+
 # Outbound communication
 
 - Treat code/git operations and human communication as separate permissions. Permission to commit, push, open/update a PR, or update a branch does not imply permission to post PR comments, review replies, issue comments, Slack messages, emails, Linear comments, or any other outward-facing message.
-- Before posting or updating public/shared human-facing communication on Matt's behalf, ask explicitly unless Matt has specifically requested that exact message/action in the current turn.
-- Drafting proposed wording is fine when useful, but do not send/post it without explicit approval.
+- Before posting or updating public/shared human-facing communication on Matt's behalf, show him the complete verbatim text and destination for review in the reply body, then wait for his explicit approval of that text and action. A request to post, reply, or follow up does not by itself approve unseen wording. If he supplies the exact text and explicitly asks to send it, that text has already been shown. If the wording changes after approval, show the revision and obtain approval again.
+- Drafting proposed wording is fine, but do not send or post it without the review and approval above.
 
 # PRs
 
@@ -91,12 +101,8 @@
 - Default to `--draft` PRs
 - Never mark a draft PR ready for review (`gh pr ready`, undrafting) — that decision belongs to a human. Only draft PRs, never undraft them.
 - PR title MUST follow conventional commit style (feat:, fix:, chore:, etc.)
-- Don't default to bullet lists for describing changes in PR bodies. For small PRs with one primary change, use 1 short paragraph or 1-2 sentences. Bullets are for things scanned independently: multiple meaningful changes, or parallel facts that answer the same question once per harness/module/platform (put that question in a short heading and make every bullet answer it in the same shape). Include output snippets when terminal/UI output changes.
-- PR bodies contain only what a reviewer can't get from glancing at the diff. Skip explanations of how a value is computed when the code shows it. Keep where it comes from, why, and what was verified outside CI.
-- Verify by linking evidence (commit snapshot, workflow run, screenshot), not by asserting results. Leave specific numbers out unless they change a decision.
 - When creating or updating PR bodies with multi-line content via CLI, write the body to a temp file and pass it with `--body-file`. Do not pass escaped `\n` sequences inline because GitHub will render them literally.
 - Avoid superflous formatting / sectioning.
-- When a PR body has several screenshots, put them side by side in a markdown table (one column each, header row for labels) instead of stacking them, within reason. Stacked images eat vertical space. Never go wider than 3 columns, since the images get too small to read. With more than 3, use a grid (e.g. 2x2) with a bold label row above each image row.
 - Write PR bodies, issues, messages, and code comments for readers who have not seen the conversation or planning documents. State decisions and limitations directly without referring to planning or iteration history.
 - After pushing commits to a pre-existing PR, check if the PR body needs updating — specifically if any bullet points reference things that are now outdated or inaccurate. Offer to update only if something is wrong or missing that a reviewer would need. Do not add bullets just because new commits were pushed; keep PR bodies minimal. Exception: if any incidental fixes were included alongside the main work, add a bullet for each since they won't be apparent from the PR title.
 
@@ -107,6 +113,7 @@
 
 # Writing skills
 
+- Write each skill as a current, self-contained snapshot for a fresh agent session. Keep instructions that shape the desired outcome and omit context that only explains earlier versions. Record the history and rationale in the changelog when useful.
 - In a skill body, ask for a behavior instead of requiring another skill or tool by name, and let the harness pick the tooling. A name is fine as an optional hint. Keep inline anything the skill's correctness depends on, so it still works when the other skill isn't loaded.
 
 # Switching branches
