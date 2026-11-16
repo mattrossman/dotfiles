@@ -33,6 +33,8 @@
 
 # Showing work
 
+- **Show, don't tell.** Make explanations, proposals, reviews, and drafts concrete with the smallest useful example, proposed wording, or observed result. Use the demonstration to replace prose it makes redundant. Keep direct answers short when they already suffice, and distinguish illustrative examples from verified evidence.
+
 - When iterating on UI with live reloading, apply small visual changes as you propose them so I can see the result.
 
 - When saying a behavior will change in future, distinguish a change for this conversation from durable guidance. If guidance was changed, identify the file and show the relevant text; if it was not, say so and do not imply the preference was saved.
