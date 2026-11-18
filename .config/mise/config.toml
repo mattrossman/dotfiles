@@ -4,7 +4,6 @@ lockfile = true
 experimental = true
 
 [tools]
-aws-cli = "2.28.15"
 biome = "2.2.2"
 node = "24.5.0"
 "npm:@antfu/ni" = "25.0.0"
