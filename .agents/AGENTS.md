@@ -81,6 +81,7 @@
 
 - For dotfiles changes under `$HOME`, use the `dot` command for all git operations (`status`, `diff`, `add`, `commit`, `push`) instead of plain `git`.
 - `dot` is the wrapper for the bare repo at `$HOME/.dotfiles.git` with work tree `$HOME`.
+- For small personal dotfiles changes, commit and push directly to `main` when explicitly asked.
 - Never run `dot status` with untracked scanning across `$HOME` (`--untracked-files=all`, `--untracked-files=normal`, `-u`, etc.).
 - Use `dot status` by default; only check specific paths when you need to inspect untracked files.
 
