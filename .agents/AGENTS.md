@@ -19,6 +19,10 @@
 - When doing research, always include links to documentation that back up findings. Team members need trusted sources to verify claims — don't expect them to take things at face value.
 - When unusual errors occur before a third-party service executes our code, check that service's public status page before retrying, batching, or changing our implementation.
 
+# Documentation
+
+- When writing documentation, start from the reader's context. Include only steps needed for that document's purpose, and point to the existing source of truth instead of duplicating details it maintains.
+
 # TypeScript
 
 - Prefer tiny `if` + `push`/`add` accumulation over clever chains when it reads clearer, but keep larger conditional flows declarative where mutation would obscure the logic.
